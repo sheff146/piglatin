@@ -1,4 +1,4 @@
-import { transformToPigLatin } from "../src/piglatin";
+import { transformToPigLatin } from "./piglatin";
 
 describe("transformToPigLatin", () => {
   it("should return transformed text", () => {
