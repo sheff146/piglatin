@@ -1,22 +1,22 @@
 {
   "name": "piglatin",
-  "version": "0.0.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Simple Pig Latin transformer",
   "keywords": [],
-  "main": "dist/piglatin.umd.js",
   "module": "dist/piglatin.es5.js",
   "typings": "dist/types/piglatin.d.ts",
   "files": [
     "dist"
   ],
-  "author": " <>",
+  "private": true,
+  "author": "Aleksandr Shevchenko <alexandre.shevchenko@gmail.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/sheff146/piglatin.git"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=12.0.0"
   },
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
