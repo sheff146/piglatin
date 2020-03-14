@@ -1,3 +1,5 @@
+const punctuationRegex = /[.,;!?]/g;
+
 export function transformToPigLatin(text: string) {
   const words = parse(text);
   const transformedWords = words.map(transformWord);
@@ -9,6 +11,8 @@ function parse(text: string): string[] {
 }
 
 function transformWord(word: string): string {
+  const punctuationMap = getPunctuation(word);
+  word = word.replace(punctuationRegex, "");
   const capitalIndices = getCapitalIndices(word);
   word = word.toLowerCase();
 
@@ -24,6 +28,12 @@ function transformWord(word: string): string {
       return char;
     })
     .join("");
+
+  const temp = word.split("").reverse();
+  punctuationMap.forEach((char, index) => {
+    temp.splice(index, 0, char);
+  });
+  word = temp.reverse().join("");
 
   return word;
 }
@@ -48,14 +58,27 @@ function rearrangeLetters(word: string): string {
   return word;
 }
 
-let capitalRegExp = /[A-Z]/;
+let capitalRegex = /[A-Z]/;
 
 function getCapitalIndices(word: string): Set<number> {
   const result = new Set<number>();
   word.split("").forEach((char, index) => {
-    if (capitalRegExp.test(char)) {
+    if (capitalRegex.test(char)) {
       result.add(index);
     }
   });
+  return result;
+}
+
+function getPunctuation(word: string): Map<number, string> {
+  const result = new Map<number, string>();
+  word
+    .split("")
+    .reverse()
+    .forEach((char, index) => {
+      if (punctuationRegex.test(char)) {
+        result.set(index, char);
+      }
+    });
   return result;
 }
