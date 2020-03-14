@@ -1,14 +1,10 @@
-import DummyClass from "../src/piglatin";
+import { transformToPigLatin } from "../src/piglatin";
 
-/**
- * Dummy test
- */
-describe("Dummy test", () => {
-  it("works if true is truthy", () => {
-    expect(true).toBeTruthy();
-  });
+describe("transformToPigLatin", () => {
+  it("should return transformed text", () => {
+    const srcText = "Hello, apple!";
+    const result = transformToPigLatin(srcText);
 
-  it("DummyClass is instantiable", () => {
-    expect(new DummyClass()).toBeInstanceOf(DummyClass);
+    expect(result).toBe("Ellohay, appleway!");
   });
 });
