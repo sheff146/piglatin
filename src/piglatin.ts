@@ -3,11 +3,13 @@ const punctuationRegex = /[.,;!?]/g;
 export function transformToPigLatin(text: string) {
   const words = parse(text);
   const transformedWords = words.map(transformWord);
-  return transformedWords.join(" ");
+  return transformedWords.join("");
 }
 
+const splitRegex = /( +)|(-+)/;
+
 function parse(text: string): string[] {
-  return text.split(" ");
+  return text.split(splitRegex).filter(str => str);
 }
 
 function transformWord(word: string): string {
