@@ -9,10 +9,30 @@ function parse(text: string): string[] {
 }
 
 function transformWord(word: string): string {
-  const consonantRegex = /^([bcdfghjklmnpqrstvwxz])(\w*)$/;
-  const vowelRegex = /^[aeiouy]\w*$/;
-  const wayRegex = /way$/;
+  const capitalIndices = getCapitalIndices(word);
+  word = word.toLowerCase();
 
+  word = rearrangeLetters(word);
+
+  word = word
+    .split("")
+    .map((char, index) => {
+      if (capitalIndices.has(index)) {
+        return char.toUpperCase();
+      }
+
+      return char;
+    })
+    .join("");
+
+  return word;
+}
+
+const consonantRegex = /^([bcdfghjklmnpqrstvwxz])(\w*)$/;
+const vowelRegex = /^[aeiouy]\w*$/;
+const wayRegex = /way$/;
+
+function rearrangeLetters(word: string): string {
   if (wayRegex.test(word)) {
     return word;
   }
@@ -26,4 +46,16 @@ function transformWord(word: string): string {
   }
 
   return word;
+}
+
+let capitalRegExp = /[A-Z]/;
+
+function getCapitalIndices(word: string): Set<number> {
+  const result = new Set<number>();
+  word.split("").forEach((char, index) => {
+    if (capitalRegExp.test(char)) {
+      result.add(index);
+    }
+  });
+  return result;
 }
