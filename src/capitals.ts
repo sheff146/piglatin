@@ -1,12 +1,14 @@
-const CAPITAL_REGEXP = /[A-Z]/;
+const CAPITAL_REGEXP = /[A-Z]/g;
+const REPLACE_REGEXP = new RegExp(CAPITAL_REGEXP, "ig");
 
-export function getCapitals(word: string): Set<number> {
+type CapitalsSet = Set<number>;
+
+export function getCapitals(word: string): CapitalsSet {
   const result = new Set<number>();
-  word.split("").forEach((char, index) => {
-    if (CAPITAL_REGEXP.test(char)) {
-      result.add(index);
-    }
-  });
+  const matches = word.matchAll(CAPITAL_REGEXP);
+  for (const match of matches) {
+    result.add(match.index as number);
+  }
   return result;
 }
 
@@ -14,15 +16,8 @@ export function removeCapitals(word: string): string {
   return word.toLowerCase();
 }
 
-export function addCapitals(word: string, capitals: Set<number>): string {
-  return word
-    .split("")
-    .map((char, index) => {
-      if (capitals.has(index)) {
-        return char.toUpperCase();
-      }
-
-      return char;
-    })
-    .join("");
+export function addCapitals(word: string, capitals: CapitalsSet): string {
+  return word.replace(REPLACE_REGEXP, (substr, offset) =>
+    capitals.has(offset) ? substr.toUpperCase() : substr
+  );
 }

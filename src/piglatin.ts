@@ -1,10 +1,10 @@
-import { parse } from "./parse";
+import { split } from "./split";
 import { rearrange } from "./rearrange";
 import { addCapitals, getCapitals, removeCapitals } from "./capitals";
 import { addPunctuation, getPunctuation, removePunctuation } from "./punctuation";
 
 export function transformToPigLatin(text: string) {
-  const words = parse(text);
+  const words = split(text);
   const transformedWords = words.map(transformWord);
   return transformedWords.join("");
 }
