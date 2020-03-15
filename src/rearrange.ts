@@ -1,5 +1,5 @@
 const CONSONANT_REGEXP = /^([bcdfghjklmnpqrstvwxz])(\w*)$/;
-const VOWEL_REGEXP = /^[aeiouy]\w*$/;
+const VOWEL_REGEXP = /^[aeiouy]/;
 const WAY_REGEXP = /way$/;
 
 export function rearrange(word: string): string {
