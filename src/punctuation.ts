@@ -1,4 +1,4 @@
-const PUNCTUATION_REGEXP = /[.,;:!?]/g;
+const PUNCTUATION_REGEXP = /[.,;:!?'"]/g;
 
 type PunctuationMap = string[];
 

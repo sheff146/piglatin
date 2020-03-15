@@ -23,7 +23,7 @@ letters “ay” added to the end
 ## Current limitations
 
 - Works only with latin characters (a-zA-Z)
-- Supports a limited set of punctuation (.,;:!?)
+- Supports a limited set of punctuation (.,;:!?'")
 - Wasn't tested with multi-line strings, so correctness is not guaranteed
 - Doesn't work in IE and Safari
 
