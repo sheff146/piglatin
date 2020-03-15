@@ -20,7 +20,7 @@ letters “ay” added to the end
   - **Beach** becomes **Eachbay**
   - **McCloud** becomes **CcLoudmay**
  
-## Limitations
+## Current limitations
 
 - Works only with latin characters (a-zA-Z)
 - Supports a limited set of punctuation (.,;:!?)
@@ -32,6 +32,7 @@ letters “ay” added to the end
 - Write tests for every module
 - Add non-latin characters support
 - Expand supported punctuation
+- Ensure correctness with multi-line strings processing
 - Add polyfills for cross-browser support (IE and Safari)
 
 ## Yarn scripts
