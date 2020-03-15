@@ -1,6 +1,6 @@
 # Pig Latin transformer
 
-Translates a string into "Pig Latin".
+Translates a string into "Pig Latin"
 
 ## Features
 
@@ -29,7 +29,7 @@ letters “ay” added to the end
 
 ## TODO
 
-- Write tests for every module
+- Write tests for every module (right now there is just one big test for the main function covering all possible cases)
 - Add non-latin characters support
 - Expand supported punctuation
 - Ensure correctness with multi-line strings processing
